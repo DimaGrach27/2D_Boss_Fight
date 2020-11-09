@@ -84,7 +84,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7049464583995563446
 Transform:
   m_ObjectHideFlags: 0
@@ -272,9 +272,10 @@ MonoBehaviour:
   step: {fileID: 8300000, guid: 52a8dc5c9c3d6bf4eb1d5a7932ff0ef8, type: 3}
   chargAttack: {fileID: 8300000, guid: fd6f9fb26d01280499efe029bf79a9ac, type: 3}
   Attack: {fileID: 8300000, guid: 39733249a6ac4e24fb0ce652cf8f0b41, type: 3}
-  castBall: {fileID: 8300000, guid: d07b0f63d492790448d39b1ad3ec0134, type: 3}
+  castBall: {fileID: 8300000, guid: 9dfa3e2b10fa16340a8412636d17ce4b, type: 3}
   hurt: {fileID: 8300000, guid: 1c091b5a11e299941b4e11d43a8fc6e9, type: 3}
   chargeForce: 10
+  deathWind: {fileID: 0}
 --- !u!82 &1507201511
 AudioSource:
   m_ObjectHideFlags: 0

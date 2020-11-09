@@ -80,8 +80,8 @@ public class EnemyBattle : AbsBattletSys
 
     private void AttackControlCastFireBall()
     {
-        if (((transform.position.x > player.position.x + 8f) && (transform.position.x < player.position.x + 29f)) ||
-            ((transform.position.x < player.position.x - 8f) && (transform.position.x > player.position.x - 29f)))
+        if (((transform.position.x > player.position.x + 8f) && (transform.position.x < player.position.x + 41f)) ||
+            ((transform.position.x < player.position.x - 8f) && (transform.position.x > player.position.x - 41f)))
         {
                 anim.SetTrigger("Cast");
         }
@@ -101,14 +101,11 @@ public class EnemyBattle : AbsBattletSys
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         Gizmos.DrawCube(attackPoint.position, new Vector3(2f, 0.5f));
     }
 
     public void OnAttack()
     {
-        //Collider2D player = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerMask);
-
         Collider2D player = Physics2D.OverlapBox(attackPoint.position, new Vector2(2f, 0.5f), 0f, playerMask);
 
         if (player != null)

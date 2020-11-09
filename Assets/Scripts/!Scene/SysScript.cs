@@ -7,10 +7,12 @@ public class SysScript : MonoBehaviour
     [SerializeField] GameObject nigthDay;
     [SerializeField] Text dataTime;
 
-    DateTime someDate = DateTime.Now;
 
     void Update()
     {
+
+        DateTime someDate = DateTime.Now;
+
         someDate.ToLocalTime();
         dataTime.text = someDate.ToShortTimeString();
 

@@ -1,43 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Player_and_Enemy_Control;
 
 public class EnemyHealth : AbsHealthSys
 {
     private ParticleSystem partSys;
 
-    [SerializeField] float MaxHealth;
-
-    public static float CurrentHealth { get; set; }
-    //{ 
-    //    get { return CurrentHealth; }
-    //    set 
-    //    {
-    //        if (value <= 0)
-    //            CurrentHealth = value;
-    //        else
-    //            CurrentHealth = 0f;
-    //    } 
+    //private EnemyHealth(float amount)
+    //{
+    //    MaxHealth = amount;
     //}
 
+    public EnemyHealth()
+    {
+        MaxHealth = 500f;
+    }
+    public static float CurrentHealth { get; set; }
 
     void Start()
     {
         partSys = GetComponent<ParticleSystem>();
-        MaxHealth = 250f;
-        CurrentHealth = MaxHealth;
-        Debug.Log($"Enemy{MaxHealth}");
-        
+        //CurrentHealth = gameObject.AddComponent<EnemyHealth>().MaxHealth;
+        CurrentHealth = new EnemyHealth().MaxHealth;
     }
 
-    // Update is called once per frame
     public override void Damaget(float amount)
     {
         CurrentHealth -= amount;
-        Debug.Log($"Enemy HP:{CurrentHealth}");
         partSys.Play();
-
     }
 }
 

@@ -42,14 +42,10 @@ public class PlayerMovents : AbsMoventSys
 
     private void FixedUpdate()
     {
-        //Debug.Log(charControl);
         if(!PlayerHealthSys.isDeath)
             Move();
         OnDamagetPlayer();
-        //if (PlayerHealthSys.isDamaged)
-        //{
-        //    rb.AddForce
-        //}
+
     }
 
     private void Move()
@@ -139,7 +135,9 @@ public class PlayerMovents : AbsMoventSys
         if (PlayerHealthSys.isDamaged)
         {
             PlayerHealthSys.isDamaged = false;
-            rb.AddForce(transform.right * -7f, ForceMode2D.Impulse);
+            rb.AddForce((transform.right + transform.up) * new Vector2(-7f, 2f), ForceMode2D.Impulse);
+
+            Debug.Log((transform.right + transform.up) * new Vector2(-7f, 2f));
         }
     }
 }

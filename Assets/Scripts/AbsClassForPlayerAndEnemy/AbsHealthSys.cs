@@ -6,9 +6,8 @@ namespace Player_and_Enemy_Control
 {
     public abstract class AbsHealthSys : MonoBehaviour
     {
-        //public  float MaxHealth { get; set; }
-        //public  float CurrentHealth { get; set; }
-
+      
+        public float MaxHealth { get; set; }
 
         public abstract void Damaget(float amount);
 

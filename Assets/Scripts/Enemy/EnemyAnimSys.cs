@@ -5,9 +5,8 @@ public class EnemyAnimSys : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
 
-    public bool diz200;
+    public bool diz300;
     public bool diz100;
-
 
     void Start()
     {
@@ -15,7 +14,8 @@ public class EnemyAnimSys : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         diz100 = false;
-        diz200 = false;
+        diz300 = false;
+
     }
 
     void Update()
@@ -31,7 +31,8 @@ public class EnemyAnimSys : MonoBehaviour
     }
 
     public void Death() 
-    { 
+    {
+        CanvasSys.endGame = true;
         Destroy(gameObject); 
         rb.simulated = false; 
     }
@@ -45,9 +46,9 @@ public class EnemyAnimSys : MonoBehaviour
 
     private void EnemyDiz()
     {
-        if(EnemyHealth.CurrentHealth <= 200 && !diz200)
+        if(EnemyHealth.CurrentHealth <= 300 && !diz300)
         {
-            diz200 = true;
+            diz300 = true;
             anim.SetBool("Diz", true);
         }
         if(EnemyHealth.CurrentHealth <= 100 && !diz100)

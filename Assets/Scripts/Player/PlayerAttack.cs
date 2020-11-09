@@ -1,13 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Player_and_Enemy_Control;
 
 public class PlayerAttack : AbsBattletSys
 {
+
     private float timeBtwAttack = 0;
-    //public float startTimeBtwAttck;
     private bool isAttack;
+    public static float reloadAttack;
 
     public Transform castPoint;
     public GameObject fireball;
@@ -20,7 +20,10 @@ public class PlayerAttack : AbsBattletSys
     private Rigidbody2D rb;
 
     private bool isCharge = false;
+    public static float reloadTimeCharg;
+
     private bool isCastBall = false;
+    public static float reloadTimeCast;
 
     private void Start()
     {
@@ -31,17 +34,16 @@ public class PlayerAttack : AbsBattletSys
     private void Update()
     {
        
-        if (!isAttack) //проверяем не атакует ли сейчас персонаж, что бы не ьыор 100000 вызовов атаки в 1 кадр
+        if (!isAttack && !PlayerHealthSys.isDeath) //проверяем не атакует ли сейчас персонаж, что бы не ьыор 100000 вызовов атаки в 1 кадр
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Attack1();
+            }
 
             if (Input.GetKeyDown(KeyCode.V))
             {
                 StartCoroutine(AttackCharge());
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Attack1();
             }
 
             if (Input.GetKeyDown(KeyCode.F))
@@ -68,6 +70,7 @@ public class PlayerAttack : AbsBattletSys
         Damage = 15f;
 
         timeBtwAttack = 0.5f;
+        reloadAttack = timeBtwAttack;
         isAttack = true;
     }
 
@@ -77,6 +80,8 @@ public class PlayerAttack : AbsBattletSys
         {
             isCastBall = true;
 
+            reloadTimeCast = 3f;
+            Debug.Log(reloadTimeCast);
             anim.SetTrigger("Cast");
 
             yield return new WaitForSeconds(3f);
@@ -114,12 +119,14 @@ public class PlayerAttack : AbsBattletSys
         {
             isCharge = true;
 
-            
+            reloadTimeCharg = 3f;
+
+
             anim.SetTrigger("Attack2");
             Damage = 30f;
             //rb.AddForce(transform.right * 10f, ForceMode2D.Impulse);
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             isCharge = false;
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Player_and_Enemy_Control;
 
 public class PlayerHealthSys : AbsHealthSys
@@ -10,7 +8,13 @@ public class PlayerHealthSys : AbsHealthSys
     public bool isinvulnerability;
     private float timeToInvulnerability = 1f;
 
-    [SerializeField] float MaxHealth;
+    public PlayerHealthSys()
+    {
+        MaxHealth = 100f;
+    }
+    
+
+    //[SerializeField] float MaxHealth;
     public static float CurrentHealth { get; set; }
 
     public static bool isDamaged = false;
@@ -21,8 +25,8 @@ public class PlayerHealthSys : AbsHealthSys
     void Start()
     {
         anim = GetComponent<Animator>();
-        MaxHealth = 100f;
-        CurrentHealth = MaxHealth;
+        
+        CurrentHealth = new PlayerHealthSys().MaxHealth;
 
         isRdyDeath = false;
         isDeath = false;
@@ -51,7 +55,7 @@ public class PlayerHealthSys : AbsHealthSys
 
     public override void Damaget(float amount)
     {
-        if (!isinvulnerability)
+        if (!isinvulnerability && !isDeath)
         {
             CurrentHealth -= amount;
             isinvulnerability = true;

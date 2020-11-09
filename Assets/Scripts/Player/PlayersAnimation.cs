@@ -30,7 +30,6 @@ public class PlayersAnimation : MonoBehaviour
     {
         PlayerMovents.charControl = false;
         rb.velocity = Vector2.zero;
-        //transform.position = Vector3.MoveTowards(transform.position, transform.right, chargeForce);
         rb.AddForce(transform.right * chargeForce, ForceMode2D.Impulse);
     }
 
@@ -67,8 +66,17 @@ public class PlayersAnimation : MonoBehaviour
 
     public void Death()
     {
-        rb.simulated = false;
+
         PlayerMovents.charControl = false;
         deathWind.SetActive(true);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground" && PlayerHealthSys.isDeath)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 1f);
+            rb.simulated = false;
+        }
     }
 }

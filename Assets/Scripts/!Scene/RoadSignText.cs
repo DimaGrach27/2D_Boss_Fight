@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class RoadSignText : MonoBehaviour
 {
@@ -10,13 +7,16 @@ public class RoadSignText : MonoBehaviour
     private float timeSee { get; set; }
     private bool isActive;
 
+    public static bool wasReading = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             text.gameObject.SetActive(true);
+            wasReading = true;
             isActive = true;
-            timeSee = 3f;
+            timeSee = 6f;
             
         }
     }

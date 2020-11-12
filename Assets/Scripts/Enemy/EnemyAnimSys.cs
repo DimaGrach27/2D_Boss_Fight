@@ -21,11 +21,11 @@ public class EnemyAnimSys : MonoBehaviour
     void Update()
     {
         
-        if(EnemyHealth.CurrentHealth <= 0)
-        {
-            anim.SetTrigger("Death");
+        //if(EnemyHealth.CurrentHealth <= 0)
+        //{
+        //    anim.SetTrigger("Death");
             
-        }
+        //}
 
         EnemyDiz();
     }

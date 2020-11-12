@@ -35,7 +35,7 @@ public class EnemyBattle : AbsBattletSys
     {
         
 
-        if (!isAttack && !anim.GetBool("Diz")) //проверяем не атакует ли сейчас персонаж, что бы не ьыор 100000 вызовов атаки в 1 кадр
+        if (!isAttack && !anim.GetBool("Diz") && EnemyHealth.CurrentHealth > 0) //проверяем не атакует ли сейчас персонаж, что бы не ьыор 100000 вызовов атаки в 1 кадр
         {
             if (((transform.position.x > player.position.x) && (transform.position.x < player.position.x + 20f)) ||
             ((transform.position.x < player.position.x) && (transform.position.x > player.position.x - 20f)))

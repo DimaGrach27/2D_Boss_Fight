@@ -44,7 +44,7 @@ public class EnemyMove : AbsMoventSys
 
     private void Move()
     {
-        if (!anim.GetBool("Diz"))
+        if (!anim.GetBool("Diz") && EnemyHealth.CurrentHealth > 0)
         {
             Vector3 moveVelocity = Vector3.zero;
             anim.SetBool("isRuning", false);

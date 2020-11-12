@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Player_and_Enemy_Control;
 
 public class PlayerMovents : AbsMoventSys
 {
+    public static bool playTimeLine;
 
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] float rayCast = 1.3f;
@@ -22,6 +21,8 @@ public class PlayerMovents : AbsMoventSys
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        playTimeLine = true;
+
         Speed = 10f;
         JumpForce = 7f;
 
@@ -29,9 +30,10 @@ public class PlayerMovents : AbsMoventSys
 
     private void Update()
     {
-        Jump();
+        if (!PlayerHealthSys.isDeath && !playTimeLine)
+            Jump();
 
-        if (!charControl)
+            if (!charControl)
         {
             if (timeStartLostControl > 0)
                 timeStartLostControl -= Time.deltaTime;
@@ -42,10 +44,10 @@ public class PlayerMovents : AbsMoventSys
 
     private void FixedUpdate()
     {
-        if(!PlayerHealthSys.isDeath)
+        if(!PlayerHealthSys.isDeath && !playTimeLine)
             Move();
-        OnDamagetPlayer();
 
+        OnDamagetPlayer();
     }
 
     private void Move()

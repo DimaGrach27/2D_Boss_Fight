@@ -7,16 +7,18 @@ public class Amunition : MonoBehaviour
 
     [SerializeField] GameObject pressText;
 
+    [SerializeField] UnityEngine.Playables.PlayableDirector playbel;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" && RoadSignText.wasReading)
+        if(collision.gameObject.tag == "Player" && TextToAmunition.wasReading)
         {
             pressText.SetActive(true);
         }
-        if(collision.gameObject.tag == "Player" && RoadSignText.wasReading && Input.GetKey(KeyCode.E))
+        if(collision.gameObject.tag == "Player" && TextToAmunition.wasReading && Input.GetKey(KeyCode.E))
         {
-            playerSw.SetActive(true);
-            player.SetActive(false);
+            playbel.Play();
+            Invoke("ChangePlayer", 2.9f);
         }
     }
 
@@ -26,4 +28,11 @@ public class Amunition : MonoBehaviour
             pressText.SetActive(false);
     }
 
+    void ChangePlayer()
+    {
+        playerSw.SetActive(true);
+        player.SetActive(false);
+    }
+
+    
 }

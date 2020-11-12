@@ -19,6 +19,10 @@ public class CanvasSys : MonoBehaviour
     [SerializeField] Text cjargAttackllReload;
     [SerializeField] Image charge;
 
+    //Звук кнопки и меню паузы
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] AudioClip onClickButton;
+    [SerializeField] AudioSource audioSource;
 
     public static bool endGame;
 
@@ -62,6 +66,20 @@ public class CanvasSys : MonoBehaviour
         if (endGame)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!pauseMenu.activeInHierarchy)
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1f;
+            }
         }
 
         TextToReaload();
@@ -114,5 +132,15 @@ public class CanvasSys : MonoBehaviour
             attackReload.text = null;
         }
     }
+
+    public void ResumePlay()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ExitApp() => Application.Quit();
+
+    public void IfClickSound() => audioSource.PlayOneShot(onClickButton);
 
 }

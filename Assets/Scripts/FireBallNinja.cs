@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireBallNinja : MonoBehaviour
 {
+    private AudioSource audioSourse;
     private Rigidbody2D rb;
     private Animator anim;
     private bool isAlive;
@@ -12,6 +11,7 @@ public class FireBallNinja : MonoBehaviour
 
     private void Start()
     {
+        audioSourse = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         isAlive = true;
@@ -45,7 +45,10 @@ public class FireBallNinja : MonoBehaviour
         {
             isAlive = false;
             anim.SetTrigger("Bom");
-            Destroy(gameObject, 0.2f);
         }
     }
+
+    public void PlaySoun() => audioSourse.Play();
+    public void Destroy() => Destroy(gameObject);
+  
 }

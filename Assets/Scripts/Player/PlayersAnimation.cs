@@ -79,4 +79,6 @@ public class PlayersAnimation : MonoBehaviour
             rb.simulated = false;
         }
     }
+
+    public void StopPlayTimeLine() => PlayerMovents.playTimeLine = false;
 }

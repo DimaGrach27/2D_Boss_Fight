@@ -24,10 +24,10 @@ public class SysScript : MonoBehaviour
         someDate.ToLocalTime();
         dataTime.text = someDate.ToShortTimeString();
 
-        if (someDate.Hour > 12)
-            nigthDay.SetActive(true);
-        else
-            nigthDay.SetActive(false);
+        //if (someDate.Hour > 12)
+        //    nigthDay.SetActive(true);
+        //else
+        //    nigthDay.SetActive(false);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

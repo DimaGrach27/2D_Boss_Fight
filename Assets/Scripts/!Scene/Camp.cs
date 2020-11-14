@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Camp : MonoBehaviour
 {
@@ -9,6 +7,11 @@ public class Camp : MonoBehaviour
     [SerializeField] SpriteRenderer [] hideElements;
 
     private bool isHidde;
+
+    private void Start()
+    {
+        hidenCamp.SetActive(false);
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

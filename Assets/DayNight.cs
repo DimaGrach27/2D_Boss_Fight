@@ -15,10 +15,10 @@ public class DayNight : MonoBehaviour
     {
         DateTime someDate = DateTime.Now;
 
-        light2D.intensity = 2f;
-        
+        //light2D.intensity = 2f;
 
-        //if (someDate.Hour < 17 || someDate.Hour > 4)
+
+        //if (someDate.Hour > 17 || someDate.Hour < 4)
         //    light2D.intensity = 0.2f;
         //else
         //    light2D.intensity = 0.8f;

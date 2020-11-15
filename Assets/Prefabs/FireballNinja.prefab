@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5898113198554345590}
   - component: {fileID: 3248809493013662561}
   - component: {fileID: 865442866756723016}
+  - component: {fileID: 7779587088182762968}
   m_Layer: 0
   m_Name: FireballNinja
   m_TagString: Untagged
@@ -54,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ae88b8a8f6d20334b9e185c0a0df1f29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,3 +251,57 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7779587088182762968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501912605143544214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.7
+  m_Color: {r: 0.9433962, g: 0.27504182, b: 0.022249907, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0.4
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: -0.5, y: 0}
+  m_ShapePath:
+  - {x: 0.20325997, y: -0.24707805, z: 0}
+  - {x: 0.3775217, y: -0.24015754, z: 0}
+  - {x: 0.49459475, y: -0.17761241, z: 0}
+  - {x: 0.5415918, y: -0.10589292, z: 0}
+  - {x: 0.550728, y: 0.006820256, z: 0}
+  - {x: 0.5359683, y: 0.10837068, z: 0}
+  - {x: 0.45008996, y: 0.18467574, z: 0}
+  - {x: 0.36290187, y: 0.22536744, z: 0}
+  - {x: 0.20037034, y: 0.23985057, z: 0}
+  - {x: -0.07908801, y: 0.22120623, z: 0}
+  - {x: -0.37346184, y: 0.13398477, z: 0}
+  - {x: -0.52574456, y: -0.03486167, z: 0}
+  - {x: -0.39443314, y: -0.1217859, z: 0}
+  - {x: -0.04907588, y: -0.19685756, z: 0}
+  - {x: 0.0010174515, y: -0.18827926, z: 0}
+  - {x: 0.065161586, y: -0.20603985, z: 0}
+  - {x: 0.11931757, y: -0.20647854, z: 0}

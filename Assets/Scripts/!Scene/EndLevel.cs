@@ -5,18 +5,32 @@ using UnityEngine.Playables;
 public class EndLevel : MonoBehaviour
 {
     [SerializeField] PlayableDirector timeline;
+    [SerializeField] GameObject canv;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (Amunition.isPlayerWhitSword)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (collision.gameObject.tag == "Player")
             {
-                timeline.Play();
-                Invoke("LoadNextScene", 4.2f);
+                canv.SetActive(true);
+
+                if (Input.GetKey(KeyCode.E))
+                {
+                    timeline.Play();
+                    Invoke("LoadNextScene", 4.2f);
+                }
             }
         }
+        
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            canv.SetActive(false);
+    }
+
 
     void LoadNextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 }
